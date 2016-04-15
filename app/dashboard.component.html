@@ -1,0 +1,36 @@
+<div class="grid grid-pad">
+  <div *ngFor="#roster of rosters"
+    (click)="onSelect(roster)"
+    class="col-1-4">
+    <div class="module hero" [class.selected]="roster === selectedRoster">
+      <h4>{{roster.name}}</h4>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="selectedRoster" class="roster-details">
+  {{selectedRoster.name | uppercase}} Information
+
+
+  <ul class="students">
+    <li *ngFor="#rosterstudent of rosterStudents">
+      <div class="student-info">
+        {{rosterstudent.first_name}} {{rosterstudent.last_name}}
+      </div>
+      <div class="student-actions">
+        <button>Delete</button>
+      </div>
+    </li>
+  </ul>
+
+  <div class="form-group">
+    <label for="student">Student</label>
+    <select class="form-control" required>
+      <option *ngFor="#h of heroes" value="{{h.id}}">{{h.first_name}} {{h.last_name}}</option>
+    </select>
+  </div>
+
+  <div class="hero-actions">
+    <button class="add-student">Add Student</button>
+  </div>
+</div>

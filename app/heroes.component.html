@@ -1,0 +1,14 @@
+<h1>{{title}}</h1>
+<h2 class="user-head">Users</h2>
+<button (click)="addNew()" class="add-hero">Add User</button>
+<ul class="heroes">
+  <li *ngFor="#hero of heroes">
+    <div class="hero-info">
+      {{hero.first_name}} {{hero.last_name}} ({{hero.username}})
+    </div>
+    <div class="hero-actions">
+      <button (click)="gotoDetail(hero)">Edit</button>
+      <button (click)="deleteHeroes(hero)">Delete</button>
+    </div>
+  </li>
+</ul>
